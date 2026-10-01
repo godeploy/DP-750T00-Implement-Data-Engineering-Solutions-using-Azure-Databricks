@@ -1,14 +1,11 @@
 #!/bin/bash
 
 # DP-750 Lab Setup Script
-# Creates an Azure Databricks Premium workspace in a randomly selected region.
+# Creates an Azure Databricks Premium workspace in West US 2.
 
 set -e
 
-# Select a region: use the first argument if provided, otherwise pick a random one
-REGIONS=( australiaeast australiasoutheast brazilsouth canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral germanywestcentral japaneast koreacentral northcentralus northeurope norwayeast southcentralus southeastasia swedencentral switzerlandnorth uksouth westeurope westus westus2 westus3 )
-REGION=${1:-${REGIONS[$RANDOM % ${#REGIONS[@]}]}}
-
+REGION="westus2"
 RESOURCE_GROUP="rg-dp750"
 WORKSPACE_NAME="adb-dp750"
 
