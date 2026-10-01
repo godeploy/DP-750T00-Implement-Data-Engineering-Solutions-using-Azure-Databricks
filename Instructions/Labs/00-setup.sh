@@ -8,6 +8,8 @@ set -e
 # Randomly select a deployment region.
 REGIONS=(
   "westus2"
+  "westus"
+  "eastus"
   "eastus2"
 )
 
@@ -21,13 +23,7 @@ echo "Selected deployment region: $REGION"
 echo "Installing az databricks extension..."
 az config set core.collect_telemetry=no 2>/dev/null
 az config set core.display_warnings=no 2>/dev/null
-az config set extension.dynamic_install_allow_preview=true 2>/dev/null
-az extension add --upgrade -n databricks
-
-echo "Registering Microsoft.Databricks resource provider..."
-az provider register \
-  --namespace Microsoft.Databricks \
-  --wait
+@@ -22,14 +33,14 @@ az provider register \
 
 echo "Creating resource group $RESOURCE_GROUP in region $REGION..."
 az group create \
