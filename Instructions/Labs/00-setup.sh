@@ -8,8 +8,6 @@ set -e
 # Randomly select a deployment region.
 REGIONS=(
   "westus2"
-  "westus"
-  "eastus"
   "eastus2"
 )
 
